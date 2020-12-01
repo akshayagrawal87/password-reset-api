@@ -10,7 +10,7 @@ var url = process.env.DB_CONNECTION;
 
 var MongoClient = require("mongodb").MongoClient;
 
-var sendUrl = "http://localhost:8000/forgotPassword/";
+var sendUrl = "https://password-reset-api.herokuapp.com/forgotPassword/";
 
 var _require2 = require("../services/hashingService"),
     generateHash = _require2.generateHash;
