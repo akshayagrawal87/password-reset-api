@@ -8,7 +8,7 @@ var secret = process.env.JWT_SECRET;
 
 exports.createToken = function (username) {
   return jwt.sign({
-    expiresIn: "2 days",
+    expiresIn: "1h",
     username: username
   }, secret);
 };

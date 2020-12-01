@@ -119,10 +119,14 @@ forgotPasswordRouter.get("/:randomString", (req, res) => {
 				if (result !== null) {
 					console.log(result.username);
 
-					res.redirect("http://127.0.0.1:5500/resetPassword.html");
+					res.redirect(
+						"https://password-reset-ui.netlify.app/resetPassword.html"
+					);
 				} else {
 					console.log({ message: "Link Expired", reset: false });
-					res.redirect("http://127.0.0.1:5500/outputPages/invalidLink.html");
+					res.redirect(
+						"https://password-reset-ui.netlify.app/outputPages/invalidLink.html"
+					);
 				}
 				db.close();
 			});
