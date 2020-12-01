@@ -154,7 +154,7 @@ forgotPasswordRouter.post("/changePassword", function _callee2(req, response) {
                     resetToken = _context.sent;
 
                     if (!(resetToken !== null)) {
-                      _context.next = 13;
+                      _context.next = 14;
                       break;
                     }
 
@@ -166,6 +166,7 @@ forgotPasswordRouter.post("/changePassword", function _callee2(req, response) {
 
                   case 9:
                     data = _context.sent;
+                    console.log(data.password);
 
                     if (data !== null) {
                       if (data.username === email) {
@@ -173,6 +174,7 @@ forgotPasswordRouter.post("/changePassword", function _callee2(req, response) {
                           var myobj = {
                             password: passwordHash
                           };
+                          console.log(passwordHash);
                           var myquery = {
                             username: email
                           };
@@ -181,7 +183,7 @@ forgotPasswordRouter.post("/changePassword", function _callee2(req, response) {
                               password: passwordHash
                             }
                           };
-                          dbo.collection("customers").updateOne(myquery, newvalues, function (err, res) {
+                          dbo.collection("Users").updateOne(myquery, newvalues, function (err, res) {
                             if (err) {
                               response.send({
                                 message: "Password  not changed",
@@ -206,16 +208,16 @@ forgotPasswordRouter.post("/changePassword", function _callee2(req, response) {
                       });
                     }
 
-                    _context.next = 14;
+                    _context.next = 15;
                     break;
 
-                  case 13:
+                  case 14:
                     response.send({
                       message: "Session Expired! Try Again!!",
                       changed: false
                     });
 
-                  case 14:
+                  case 15:
                   case "end":
                     return _context.stop();
                 }

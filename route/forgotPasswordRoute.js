@@ -151,6 +151,7 @@ forgotPasswordRouter.post("/changePassword", async (req, response) => {
 				.findOne({
 					username: email,
 				});
+			console.log(data.password);
 
 			if (data !== null) {
 				if (data.username === email) {
@@ -159,6 +160,7 @@ forgotPasswordRouter.post("/changePassword", async (req, response) => {
 							var myobj = {
 								password: passwordHash,
 							};
+							console.log(passwordHash);
 
 							var myquery = { username: email };
 							var newvalues = {
@@ -166,7 +168,7 @@ forgotPasswordRouter.post("/changePassword", async (req, response) => {
 							};
 
 							dbo
-								.collection("customers")
+								.collection("Users")
 								.updateOne(myquery, newvalues, function (err, res) {
 									if (err) {
 										response.send({
