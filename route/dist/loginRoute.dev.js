@@ -101,7 +101,8 @@ loginRouter.post("/login", function (req, res) {
 loginRouter.get("/logout", function (req, res) {
   res.clearCookie("jwt");
   res.send({
-    message: "user logged out!"
+    message: "user logged out!",
+    loggedIn: false
   });
 });
 module.exports = loginRouter;

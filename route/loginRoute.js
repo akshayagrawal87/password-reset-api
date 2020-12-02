@@ -89,7 +89,7 @@ loginRouter.post("/login", (req, res) => {
 
 loginRouter.get("/logout", (req, res) => {
 	res.clearCookie("jwt");
-	res.send({ message: "user logged out!" });
+	res.send({ message: "user logged out!", loggedIn: false });
 });
 
 module.exports = loginRouter;
