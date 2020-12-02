@@ -62,7 +62,7 @@ loginRouter.post("/login", (req, res) => {
 								res.cookie("jwt", token, {
 									maxAge: 100000000,
 									httpOnly: true,
-									secure: false, // set to true on heroku
+									secure: true, // set to true on heroku
 								});
 								res
 									.status("200")
